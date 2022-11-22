@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor "Сервер" as sv
+
+rectangle База_даних{
+  usecase "Пошук даних у таблицях" as DB1
+  usecase "Видалення даних з таблиць" as DB2
+  usecase "Додавання даних до таблиць" as DB3
+}
+
+rectangle Передача_інформації_охоронцю{ 
+  usecase "Записи камер" as CR1
+  usecase "Стан датчиків" as CR2 
+}
+
+sv --> DB1 
+sv --> DB2 
+sv --> DB3
+
+CR1 <-- sv
+CR2 <-- sv
+@enduml
